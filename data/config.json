@@ -1,0 +1,46 @@
+{
+  "mapa": {
+    "token": "pk.eyJ1Ijoicm9vZHJpZ29tYXJxdWVzIiwiYSI6ImNtdDN2aWFmNzBhcW8yd29kNjVuaWI2OXAifQ.ZpyJwxiXMqE0PaNPzJtBNA",
+    "pais": "br"
+  },
+  "marca": {
+    "nome": "Dieguinho Entregas",
+    "slogan": "Chegou rápido. Chegou inteiro.",
+    "whatsapp": "5511985816513",
+    "whatsappExibicao": "(11) 98581-6513",
+    "base": "Diadema · SP"
+  },
+  "tarifas": {
+    "moto": {
+      "faixa1Km": 5,
+      "faixa1Valor": 15,
+      "faixa2Km": 10,
+      "faixa2Valor": 22,
+      "kmExtra": 2.2,
+      "limiteLongaKm": 50,
+      "kmLonga": 2.5,
+      "pesoIncluso": 10,
+      "kgExtra": 1
+    },
+    "carro": {
+      "faixa1Km": 5,
+      "faixa1Valor": 35,
+      "faixa2Km": 10,
+      "faixa2Valor": 50,
+      "kmExtra": 3.5,
+      "limiteLongaKm": 50,
+      "kmLonga": 4,
+      "pesoIncluso": 50,
+      "kgExtra": 0.5
+    }
+  },
+  "adicionais": {
+    "urgente": 8,
+    "agendada": 5,
+    "parada": 6
+  },
+  "pagamento": {
+    "cartaoVista": 3,
+    "parceladoPercentual": 12
+  }
+}
