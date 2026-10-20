@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f4c45">
+  <meta name="description" content="Entregas de moto e carro com preço na hora. Calcule, gere a ordem de serviço e peça pelo WhatsApp.">
+  <title>Dieguinho Entregas | Chegou rápido. Chegou inteiro.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topo">
+    <a class="marca" href="#inicio"><span class="marca-selo">D</span><span data-cfg="marca.nome"></span></a>
+    <nav><a href="#frete">Calcular</a><a href="#como">Como funciona</a><a href="#contato">Contato</a></nav>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="hero-texto">
+        <h1>Sua entrega sai agora, com o preço na tela.</h1>
+        <p>Moto para o dia a dia, carro para carga maior. Informe os endereços, veja o valor e peça pelo WhatsApp.</p>
+        <p class="hero-nota" data-cfg="marca.horario"></p>
+      </div>
+
+      <form class="cartao" id="frete" autocomplete="off">
+        <h2>Calcule sua entrega</h2>
+        <fieldset class="veiculo">
+          <legend class="sr">Veículo</legend>
+          <label><input type="radio" name="veiculo" value="moto" checked><span>Moto</span></label>
+          <label><input type="radio" name="veiculo" value="carro"><span>Carro / utilitário</span></label>
+        </fieldset>
+        <label>Retirar em<input id="coleta" required placeholder="Rua, número, cidade"></label>
+        <label>Entregar em<input id="entrega" required placeholder="Rua, número, cidade"></label>
+        <div class="linha">
+          <label>Paradas extras<input id="paradas" type="number" min="0" value="0"></label>
+          <label>Peso (kg)<input id="peso" type="number" min="0" value="1"></label>
+          <label>Distância (km)<input id="km" type="number" min="0" step="0.1" placeholder="Automática"></label>
+        </div>
+        <div class="linha checks">
+          <label><input type="checkbox" id="urgente"> Urgente</label>
+          <label><input type="checkbox" id="agendada"> Agendada</label>
+        </div>
+        <label>Pagamento
+          <select id="pagamento">
+            <option value="pix">Pix</option>
+            <option value="dinheiro">Dinheiro</option>
+            <option value="cartaoVista">Cartão à vista</option>
+            <option value="parcelado">Cartão parcelado</option>
+            <option value="faturado">Faturado (clientes cadastrados)</option>
+          </select>
+        </label>
+        <button type="submit" class="btn">Ver o valor</button>
+        <p class="aviso" id="aviso" role="status"></p>
+        <div class="resultado" id="resultado" hidden>
+          <span>Total estimado</span>
+          <strong id="total">R$ 0,00</strong>
+          <small id="detalhe"></small>
+          <div class="acoes">
+            <button type="button" class="btn sec" id="btnOS">Gerar ordem de serviço (PDF)</button>
+            <a class="btn zap" id="btnZap" href="#" target="_blank" rel="noopener">Pedir no WhatsApp</a>
+          </div>
+          <small>Gere a ordem de serviço, salve em PDF e anexe na conversa.</small>
+        </div>
+      </form>
+    </section>
+
+    <section class="como" id="como">
+      <h2>Do endereço à porta, em três passos</h2>
+      <ol>
+        <li><b>Informe a rota</b><span>Coloque onde retirar e onde entregar.</span></li>
+        <li><b>Confira o valor</b><span>O preço aparece na hora, com taxas à vista.</span></li>
+        <li><b>Envie a ordem de serviço</b><span>Anexe o PDF no WhatsApp e confirmamos a coleta.</span></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="rodape" id="contato">
+    <div>
+      <h2>Fale com o Dieguinho</h2>
+      <p>WhatsApp <a id="rodZap" href="#" data-cfg="marca.whatsappExibicao"></a></p>
+      <p>E-mail <a id="rodMail" href="#" data-cfg="marca.email"></a></p>
+      <p>Base <span data-cfg="marca.base"></span></p>
+    </div>
+    <small>© 2026 <span data-cfg="marca.nome"></span></small>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
