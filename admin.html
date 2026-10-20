@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f4c45">
+  <meta name="description" content="Painel administrativo da Dieguinho Entregas.">
+  <title>Painel administrativo | Dieguinho Entregas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <main class="admin-shell">
+    <section class="login-card" id="loginView">
+      <div class="brand-mark"><span>D</span><div><strong>Dieguinho Entregas</strong><small>Área administrativa</small></div></div>
+      <h1>Entrar no painel</h1>
+      <p class="muted">Altere preços e dados da operação de forma simples.</p>
+      <form id="loginForm" class="stack" autocomplete="off">
+        <label>Usuário<input id="loginUser" required autocomplete="username" placeholder="diego15"></label>
+        <label>Senha<input id="loginPass" required type="password" autocomplete="current-password" placeholder="••••••••"></label>
+        <button class="btn" type="submit">Entrar</button>
+        <p class="form-message error" id="loginMessage" role="alert"></p>
+      </form>
+      <a class="back-link" href="index.html">← Voltar para a calculadora</a>
+    </section>
+
+    <section class="dashboard" id="dashboardView" hidden>
+      <header class="dash-head">
+        <div class="brand-mark"><span>D</span><div><strong id="dashTitle">Dieguinho Entregas</strong><small>Painel de operação</small></div></div>
+        <div class="head-actions"><a class="btn ghost" href="index.html">Ver site</a><button class="btn ghost" id="logoutBtn" type="button">Sair</button></div>
+      </header>
+
+      <div class="dash-intro"><div><p class="eyebrow">Configuração rápida</p><h1>Valores e dados do negócio</h1><p class="muted">Salve para aplicar nos próximos cálculos deste navegador.</p></div><div class="status-pill" id="saveStatus">Alterações locais</div></div>
+
+      <form id="configForm" class="config-grid">
+        <section class="panel panel-wide"><div class="panel-title"><span class="panel-icon">01</span><div><h2>Marca e contato</h2><p>O que aparece no site e na ordem de serviço.</p></div></div><div class="fields two">
+          <label>Nome da empresa<input id="marcaNome" required></label><label>Slogan<input id="marcaSlogan" required></label>
+          <label>WhatsApp (somente números)<input id="marcaWhatsapp" inputmode="numeric" required></label><label>WhatsApp exibido<input id="marcaWhatsappExibicao" required></label>
+          <label>Base de atendimento<input id="marcaBase" required></label>
+        </div></section>
+
+        <section class="panel"><div class="panel-title"><span class="panel-icon">02</span><div><h2>Tarifa de moto</h2><p>Valores em reais e limites em km.</p></div></div><div class="fields two tariff-fields">
+          <label>Até (km)<input id="motoFaixa1Km" type="number" min="0" step="0.1" required></label><label>Valor faixa 1<input id="motoFaixa1Valor" type="number" min="0" step="0.01" required></label>
+          <label>Até (km)<input id="motoFaixa2Km" type="number" min="0" step="0.1" required></label><label>Valor faixa 2<input id="motoFaixa2Valor" type="number" min="0" step="0.01" required></label>
+          <label>R$/km extra<input id="motoKmExtra" type="number" min="0" step="0.01" required></label><label>Limite longa (km)<input id="motoLimiteLongaKm" type="number" min="0" step="0.1" required></label>
+          <label>R$/km longa<input id="motoKmLonga" type="number" min="0" step="0.01" required></label><label>Kg incluídos<input id="motoPesoIncluso" type="number" min="0" step="0.1" required></label>
+          <label>R$/kg excedente<input id="motoKgExtra" type="number" min="0" step="0.01" required></label>
+        </div></section>
+
+        <section class="panel"><div class="panel-title"><span class="panel-icon">03</span><div><h2>Tarifa de carro</h2><p>Valores para carro ou utilitário.</p></div></div><div class="fields two tariff-fields">
+          <label>Até (km)<input id="carroFaixa1Km" type="number" min="0" step="0.1" required></label><label>Valor faixa 1<input id="carroFaixa1Valor" type="number" min="0" step="0.01" required></label>
+          <label>Até (km)<input id="carroFaixa2Km" type="number" min="0" step="0.1" required></label><label>Valor faixa 2<input id="carroFaixa2Valor" type="number" min="0" step="0.01" required></label>
+          <label>R$/km extra<input id="carroKmExtra" type="number" min="0" step="0.01" required></label><label>Limite longa (km)<input id="carroLimiteLongaKm" type="number" min="0" step="0.1" required></label>
+          <label>R$/km longa<input id="carroKmLonga" type="number" min="0" step="0.01" required></label><label>Kg incluídos<input id="carroPesoIncluso" type="number" min="0" step="0.1" required></label>
+          <label>R$/kg excedente<input id="carroKgExtra" type="number" min="0" step="0.01" required></label>
+        </div></section>
+
+        <section class="panel"><div class="panel-title"><span class="panel-icon">04</span><div><h2>Adicionais</h2><p>Custos extras adicionados ao pedido.</p></div></div><div class="fields two">
+          <label>Urgente (R$)<input id="adUrgente" type="number" min="0" step="0.01" required></label><label>Agendada (R$)<input id="adAgendada" type="number" min="0" step="0.01" required></label><label>Parada extra (R$)<input id="adParada" type="number" min="0" step="0.01" required></label>
+        </div></section>
+
+        <section class="panel"><div class="panel-title"><span class="panel-icon">05</span><div><h2>Pagamento e mapa</h2><p>Taxa do cartão e conexão de rotas.</p></div></div><div class="fields two">
+          <label>Cartão à vista (R$)<input id="pagCartaoVista" type="number" min="0" step="0.01" required></label><label>Parcelado (%)<input id="pagParcelado" type="number" min="0" step="0.1" required></label>
+          <label class="field-wide">Token público Mapbox<input id="mapaToken" type="text" spellcheck="false"></label><label>País<input id="mapaPais" maxlength="2" required></label>
+          <label>Proximidade longitude<input id="mapaPx" type="number" step="0.0001" required></label><label>Proximidade latitude<input id="mapaPy" type="number" step="0.0001" required></label>
+        </div><div class="map-check"><span id="mapStatus" class="status-dot neutral"></span><span id="mapStatusText">Mapbox ainda não testado</span><button class="btn small" type="button" id="testMapBtn">Testar Mapbox</button></div></section>
+
+        <div class="form-actions panel-wide"><button class="btn" type="submit">Salvar alterações</button><button class="btn outline" type="button" id="resetBtn">Restaurar padrão</button><p class="form-message" id="saveMessage" role="status"></p></div>
+      </form>
+    </section>
+  </main>
+  <script src="js/admin.js" defer></script>
+</body>
+</html>
